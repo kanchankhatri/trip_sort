@@ -25,15 +25,15 @@ Basic Design
 
 Extending 
 ----------------------------------------------        
-    ###Tickets:
-        *when a ticket is created, based on its transport attribute its respective ticket class object is returned by TicketFactory.
-        *array('source'=>'A','destination'=>'B','transport'=>'train') will create TrainTicket object for this ticket.
-        *By default, GenericTicket object is created for ticket if transport is null or its respective transport class is not present.
-        *eg:  array('source'=>'A','destination'=>'B','transport'=>'bus') will create GenericTicket object for this ticket as BusTicket class is not added.
-        *To add another mode of transport like Bus, a class is to be added which will extend Ticket class as seen in TrainTicket.
-    ###Modules Like: Display Html of any array of Ticket Object
-        *This can be done by simply adding function in Trip, function show_tickets that will call sort_tickets and display the results in view.    
-        *example modules can be seen in Trip class - like calculating trip cost etc.
+    Tickets:
+        when a ticket is created, based on its transport attribute its respective ticket class object is returned by TicketFactory.
+        array('source'=>'A','destination'=>'B','transport'=>'train') will create TrainTicket object for this ticket.
+        By default, GenericTicket object is created for ticket if transport is null or its respective transport class is not present.
+        eg:  array('source'=>'A','destination'=>'B','transport'=>'bus') will create GenericTicket object for this ticket as BusTicket class is not added.
+        To add another mode of transport like Bus, a class is to be added which will extend Ticket class as seen in TrainTicket.
+    Modules Like: Display Html of any array of Ticket Object
+        This can be done by simply adding function in Trip, function show_tickets that will call sort_tickets and display the results in view.    
+        example modules can be seen in Trip class - like calculating trip cost etc.
 
 To Add
 ----------------------------------------------
