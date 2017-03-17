@@ -5,9 +5,9 @@
  * Inherited From Ticket Class.
  */
 
-use App\Classes\Ticket;
+use App\Classes\TicketAbstract;
 
-class FlightTicket extends Ticket {
+class FlightTicket extends TicketAbstract {
   /**
    * Seat number.
    */
@@ -35,7 +35,7 @@ class FlightTicket extends Ticket {
     if($this->common_helper->valid_ticket($ticket)){
       $this->source       = strtolower($ticket['source']);
       $this->destination  = strtolower($ticket['destination']);
-      $this->transport      = isset($ticket['transport'])?$ticket['transport']:'';
+      $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'';
       $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';
       $this->flight_no         = (isset($ticket['flight_no'])?$ticket['flight_no']:'');
       $this->baggage         = isset($ticket['baggage'])?$ticket['baggage']:'';

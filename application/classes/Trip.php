@@ -39,12 +39,14 @@ class Trip extends Base {
         if(strtolower($response_type) == 'json'){
         	/*process array of objects to return json*/
         	
+        } else if(strtolower($response_type) == 'array') {
+            return $data['plan'];
         } else {
         	$html = $this->load_view('ticket_sort',$data,true);
         	$res['status']='success';
         	$res['msg'] = $html;
         	return $res;
-    	}
+        }
     }
 
     /**

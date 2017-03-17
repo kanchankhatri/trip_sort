@@ -8,7 +8,7 @@ use App\Classes\core\Base;
 use App\Classes\GenericTicket;
 
 abstract class TicketFactory extends Base {
-    
+  
     /**
      * Creates Ticket instance from ticket array provided.
      * @return TicketObject - Object of class GenericTicket If transport is not defined else {transport}Ticket object where transport can be bus, flight etc.
@@ -20,19 +20,19 @@ abstract class TicketFactory extends Base {
           $obj = new GenericTicket($ticket);                    
         } else {          
           
-            $class = ucfirst($ticket['transport']) . 'Ticket';            
-            if(class_exists($class,true)){
-              $obj = new $class($ticket);
-            } else {                            
-              $obj = new GenericTicket($ticket);
-            }
-            return $obj;                    
-        }
-        }
-          catch (Exception $e) {            
-            die(self::$helper_objects['common_helper']->show_error($e->getMessage(),false));
+          $class = ucfirst($ticket['transport']) . 'Ticket';            
+          if(class_exists($class,true)){
+            $obj = new $class($ticket);
+          } else {                            
+            $obj = new GenericTicket($ticket);
           }
-      } 
+          return $obj;                    
+        }
+      }
+      catch (Exception $e) {            
+        die(self::$helper_objects['common_helper']->show_error($e->getMessage(),false));
+      }
+    } 
     
     /*
     This will import the input json file of tickets in assets/ dir which is paralled to application/ dir.
@@ -59,4 +59,4 @@ abstract class TicketFactory extends Base {
       }
       */
     }
-}
+  }

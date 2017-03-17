@@ -9,13 +9,13 @@
 
 ?>
 <div class='sorted_trip'>
-<ol>
-<?php 
+	<ol>
+		<?php 
 	// loading trip_helper to use generate_trip_html which will return the iternary in html format.
-    $this->load_helper('trip_helper');
-    $trip_sort_li = $this->trip_helper->generate_trip_html($plan); 
-    $trip_sort_li.= '<li> You have arrived at your final destination.</li>';
-    echo $trip_sort_li;
-?>
-</ol>
+		$this->load_helper('trip_helper');
+		$trip_sort_li = $this->trip_helper->generate_trip_html($plan); 
+		$trip_sort_li.= '<li> You have arrived at your final destination.</li>';
+		echo $trip_sort_li;
+		?>
+	</ol>
 </div>

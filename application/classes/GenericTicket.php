@@ -8,11 +8,11 @@
 namespace App\Classes;
 use Exception;
 
-use App\Classes\Ticket;
+use App\Classes\TicketAbstract;
 
 
-class GenericTicket extends Ticket {
-    
+class GenericTicket extends TicketAbstract {
+  
   /**
    * Seat number of the ticket.
    */
@@ -25,7 +25,7 @@ class GenericTicket extends Ticket {
   function __construct(array $ticket) {    
     parent::__construct();
     $this->auto_load();    
-    $this->transport      = isset($ticket['transport'])?$ticket['transport']:'generic';
+    $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'generic';
     if($this->common_helper->valid_ticket($ticket)){
       $this->source       = strtolower($ticket['source']);
       $this->destination  = strtolower($ticket['destination']);

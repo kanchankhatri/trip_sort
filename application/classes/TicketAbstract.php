@@ -10,7 +10,7 @@ use App\Classes\core\Base;
 
 // use App\Classes\core\TicketAbstract;
 
-class Ticket extends Base {
+abstract class TicketAbstract extends Base {
   /**
    * Ticket Source
    */
@@ -40,7 +40,7 @@ class Ticket extends Base {
   public function __get($property)
   {
     if (property_exists($this, $property)) {
-        return $this->$property;
+      return $this->$property;
     }
   } 
 }

@@ -8,11 +8,11 @@
  4. Autoloads
  */
 
-namespace App\Classes\Core;
+ namespace App\Classes\Core;
 
-require_once APP_DIR.'autoload.php';
+ require_once APP_DIR.'autoload.php';
 
-class Base {
+ class Base {
     /*Instance of this class will be stored in $instance
     */
     private static $instance;    
