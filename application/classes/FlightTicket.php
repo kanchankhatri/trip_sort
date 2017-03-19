@@ -27,21 +27,15 @@ class FlightTicket extends TicketAbstract {
   
   /**
    * Constructor for the FlightTicket class.
-   * @param array of flight ticket
+   * @param associative array of ticket with property as key value pair
+   * @return {Transporttype}Ticket i.e., FlightTicket Object
    */
   function __construct(array $ticket) {
-    parent::__construct();
-    $this->auto_load();      
-    if($this->common_helper->valid_ticket($ticket)){
-      $this->source       = strtolower($ticket['source']);
-      $this->destination  = strtolower($ticket['destination']);
-      $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'';
-      $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';
-      $this->flight_no         = (isset($ticket['flight_no'])?$ticket['flight_no']:'');
-      $this->baggage         = isset($ticket['baggage'])?$ticket['baggage']:'';
-      $this->gate         = isset($ticket['gate'])?$ticket['gate']:'';    
-      return $this;
-    }
-    throw new Exception('Invalid Flight Ticket Format');
+    parent::__construct($ticket);    
+    $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';
+    $this->flight_no         = (isset($ticket['flight_no'])?$ticket['flight_no']:'');
+    $this->baggage         = isset($ticket['baggage'])?$ticket['baggage']:'';
+    $this->gate         = isset($ticket['gate'])?$ticket['gate']:'';    
+    return $this;    
   }
 }

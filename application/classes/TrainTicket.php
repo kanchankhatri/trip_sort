@@ -22,19 +22,20 @@ class TrainTicket extends TicketAbstract {
   
   /**
    * Constructor for the TrainTicket class.
-   * @param array of train ticket
+   * @param associative array of ticket with property as key value pair
+   * @return {Transporttype}Ticket i.e., TrainTicket Object
    */
   function __construct(array $ticket) {
-    parent::__construct();
-    $this->auto_load();        
-    if($this->common_helper->valid_ticket($ticket)){
-      $this->source       = strtolower($ticket['source']);
-      $this->destination  = strtolower($ticket['destination']);
-      $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'';
+    parent::__construct($ticket);
+    // $this->auto_load();        
+    // if($this->common_helper->valid_ticket($ticket)){
+      // $this->source       = strtolower($ticket['source']);
+      // $this->destination  = strtolower($ticket['destination']);
+      // $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'';
       $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';
       $this->train_no         = (isset($ticket['train_no'])?$ticket['train_no']:'');      
       return $this;
-    }
-    throw new Exception('Invalid Train Ticket Format');
+    // }
+    // throw new Exception('Invalid Train Ticket Format');
   }
 }

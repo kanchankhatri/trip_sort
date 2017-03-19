@@ -7,7 +7,7 @@
 
 namespace App\Classes;
 use App\Classes\core\Base;
-
+use Exception;
 // use App\Classes\core\TicketAbstract;
 
 abstract class TicketAbstract extends Base {
@@ -25,22 +25,31 @@ abstract class TicketAbstract extends Base {
    */
   protected $transport;
   
-  // /**
-  //  * Constructor for the CommonCard class.  
-  //  */
-  function __construct() {
+  /**
+   * Constructor for the TicketAbstract class. 
+   * @param associative array of ticket with property as key value pair   
+   * Checks validity of ticket array else throws an exception.
+  */
+  function __construct($ticket) {
     parent::__construct();
-    $this->auto_load(); 
+    $this->auto_load();     
+    if($this->common_helper->valid_ticket($ticket)) {
+      $this->source       = strtolower($ticket['source']);
+      $this->destination  = strtolower($ticket['destination']);
+      $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'generic';
+    } else {
+      throw new Exception('Invalid '.ucfirst($ticket['transport']).' Ticket Format');
+    }
   }
   
   /**
-   * PHP Magic getter
-   * @param string $property 
+   * Magic Function
+   * @param string $property
    */
   public function __get($property)
   {
     if (property_exists($this, $property)) {
       return $this->$property;
     }
-  } 
+  }
 }

@@ -5,14 +5,14 @@
  * Inherited From Ticket Class.
  */
 
-namespace App\Classes;
-use Exception;
+// namespace App\Classes;
+// use Exception;
 
 use App\Classes\TicketAbstract;
 
 
 class GenericTicket extends TicketAbstract {
-  
+
   /**
    * Seat number of the ticket.
    */
@@ -20,18 +20,14 @@ class GenericTicket extends TicketAbstract {
   
   /**
    * Constructor for the GenericTicket class.
-   * @param array of ticket
+   * @param associative array of ticket with property as key value pair
+   * @return {Transporttype}Ticket i.e., GenericTicket Object
    */
   function __construct(array $ticket) {    
-    parent::__construct();
-    $this->auto_load();    
-    $this->transport      = isset($ticket['transport'])?strtolower($ticket['transport']):'generic';
-    if($this->common_helper->valid_ticket($ticket)){
-      $this->source       = strtolower($ticket['source']);
-      $this->destination  = strtolower($ticket['destination']);
-      $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';      
-      return $this;
-    } 
-    throw new Exception('Invalid '.ucfirst($this->transport).' Ticket Format');
+    parent::__construct($ticket);    
+    $this->source       = strtolower($ticket['source']);
+    $this->destination  = strtolower($ticket['destination']);
+    $this->seat         = isset($ticket['seat'])?$ticket['seat']:'';      
+    return $this;    
   }
 }

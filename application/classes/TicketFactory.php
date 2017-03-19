@@ -5,7 +5,7 @@
  */
 
 use App\Classes\core\Base;
-use App\Classes\GenericTicket;
+// use App\Classes\GenericTicket;
 
 abstract class TicketFactory extends Base {
   
@@ -22,7 +22,9 @@ abstract class TicketFactory extends Base {
           
           $class = ucfirst($ticket['transport']) . 'Ticket';            
           if(class_exists($class,true)){
-            $obj = new $class($ticket);
+            // $o = new $class;print_r($o);
+            // print_r($class);exit;
+            $obj = new $class($ticket);            
           } else {                            
             $obj = new GenericTicket($ticket);
           }

@@ -13,6 +13,7 @@ Class Common_helper extends Base {
 /**
  * fn: valid_ticket
  * @param $ticket -  either array of tickets objects or associative array of tickets .
+ * checks manadatory params of Ticket Array or Ticket Object i.e., source and destination
  * @return boolean .
  */
 public function valid_ticket($ticket){

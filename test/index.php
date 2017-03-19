@@ -35,12 +35,12 @@ foreach ($sample_tickets as $key => $value) {
       } else {
         echo 'Fail: ' . ucfirst($value['transport']) .' ticket is not an instance of '.$class.' class' . PHP_EOL;
       }
-    } else  if ($obj instanceof App\Classes\GenericTicket) {
+    } else  if ($obj instanceof GenericTicket) {
       echo 'PASS: ' . ucfirst($value['transport']) .'Ticket class is not defined, so '.$value['transport'].' ticket  should be an instance of GenericTicket' . PHP_EOL;
     } else {
       echo 'FAIL: ' . ucfirst($value['transport']) .' ticket is not an instance of '.$class.' class' . PHP_EOL;
     }
-  } else if ($obj instanceof App\Classes\GenericTicket) {
+  } else if ($obj instanceof GenericTicket) {
     echo 'PASS: ' . $value['transport'] .' should be an instact of GenericTicket' . PHP_EOL;
   }
 
