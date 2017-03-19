@@ -34,7 +34,7 @@ Extending
         
         eg:  array('source'=>'A','destination'=>'B','transport'=>'bus') will create GenericTicket object for this ticket as BusTicket class is not added.
         
-        To add another mode of transport like Bus, a class is to be added which will extend Ticket class as seen in TrainTicket.
+        To add another mode of transport like Bus, a class is to be added {TransportType}Ticket i.e., BusTicket which will extend abstract TicketAbstract class to inherit minimum requirements for a Ticket - as seen in TrainTicket Class.
         
     Modules Like: Display Html of any array of Ticket Object
     
