@@ -7,6 +7,7 @@ $(document).ready(function(){
 		}).done(function(res){
 			$('#trip_plan').replaceWith(res);
 			$('#arrange_trip').addClass('disabled');
+			$('#arrange_trip').attr('disabled','disabled');
 		});
 	})
 });
