@@ -3,9 +3,9 @@
  * Author: Kanchan Khatri
  * TicketFactory Class - creates the Tickets objects for various modes of transport.
  */
-
+namespace App\Classes;
 use App\Classes\core\Base;
-// use App\Classes\GenericTicket;
+use App\Classes\GenericTicket;
 
 abstract class TicketFactory extends Base {
   

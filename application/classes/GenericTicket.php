@@ -5,7 +5,7 @@
  * Inherited From Ticket Class.
  */
 
-// namespace App\Classes;
+namespace App\Classes;
 // use Exception;
 
 use App\Classes\TicketAbstract;
